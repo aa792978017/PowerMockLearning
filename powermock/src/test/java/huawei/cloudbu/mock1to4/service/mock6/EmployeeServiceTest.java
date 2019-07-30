@@ -1,6 +1,7 @@
 package huawei.cloudbu.mock1to4.service.mock6;
 
 
+import com.mysql.jdbc.Connection;
 import huawei.cloudbu.mock1to4.entity.Employee;
 import huawei.cloudbu.mock6.EmployeeDao;
 import huawei.cloudbu.mock6.EmployeeService;
@@ -31,6 +32,8 @@ public class EmployeeServiceTest {
         EmployeeService service = new EmployeeService(employeeDao);
         service.createEmployee(employee);
         Mockito.verify(employeeDao).insertEmployee(employee);
+        Thread thread = Thread.currentThread();
+        Connection
     }
 
 }

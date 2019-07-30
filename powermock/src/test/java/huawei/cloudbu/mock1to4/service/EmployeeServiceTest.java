@@ -49,12 +49,12 @@ public class EmployeeServiceTest {
 //        Mockito.verify(employeeDao).addEmployee(employee);
 //    }
 
-    @Test
-    public void testGetTotalEmployee() {
-        EmployeeService service = new EmployeeService();
-        int total = service.getTotalEmployee();
-        assertEquals(10, total);
-    }
+//    @Test
+//    public void testGetTotalEmployee() {
+//        EmployeeService service = new EmployeeService();
+//        int total = service.getTotalEmployee();
+//        assertEquals(10, total);
+//    }
 
     @Test
     public void testGetTotalEmployeeWithMock() {
@@ -64,25 +64,25 @@ public class EmployeeServiceTest {
             PowerMockito.when(employeeDao.getTotal()).thenReturn(10);
             EmployeeService service = new EmployeeService();
             int total = service.getTotalEmployee();
-            assertEquals(11, total);
+            assertEquals(10, total);
         }catch (Exception e){
             fail("测试失败");
         }
     }
 
-    @Test
-    public void testCreateTmployeeWithMock() {
-        EmployeeDao employeeDao = PowerMockito.mock(EmployeeDao.class);
-        try{
-            PowerMockito.whenNew(EmployeeDao.class).withNoArguments().thenReturn(employeeDao);
-            Employee employee = new Employee();
-            EmployeeService service = new EmployeeService();
-            service.createEmployee(employee);
-            Mockito.verify(employeeDao).addEmployee(employee);
-        }catch (Exception e){
-            fail("test fail");
-        }
-
-    }
+//    @Test
+//    public void testCreateTmployeeWithMock() {
+//        EmployeeDao employeeDao = PowerMockito.mock(EmployeeDao.class);
+//        try{
+//            PowerMockito.whenNew(EmployeeDao.class).withNoArguments().thenReturn(employeeDao);
+//            Employee employee = new Employee();
+//            EmployeeService service = new EmployeeService();
+//            service.createEmployee(employee);
+//            Mockito.verify(employeeDao).addEmployee(employee);
+//        }catch (Exception e){
+//            fail("test fail");
+//        }
+//
+//    }
 
 }
